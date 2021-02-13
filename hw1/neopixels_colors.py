@@ -5,15 +5,8 @@ import neopixel
 import requests
 
 pixel_pin = board.D21
-
 num_pixels = 8
-
-ORDER = neopixel.RGB
-
-pixels = neopixel.NeoPixel(
-    pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER
-)
-
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.05)
 
 def random_colors():
     params = {"format": "json"}
@@ -42,11 +35,13 @@ def random_colors():
 
     return color_vals
 
+
 while True:
     colors = random_colors()
     for c in colors:
-        pixels.fill(c)
+        for i in range(8):
+            pixels[i] = (0,0,0)
         pixels.show()
-        time.sleep(1)
+        time.sleep(15)
 
 
