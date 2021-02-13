@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Processing
+Exec=/usr/local/bin/processing-java --sketch=/home/pi/hw/hw1/processing_colorwalkers --present
