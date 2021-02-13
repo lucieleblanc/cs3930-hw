@@ -6,6 +6,7 @@ First, ensure that your Raspberry Pi has [internet access](https://www.raspberry
 Depending on your text editor and environment preferences, 
 either connect your Pi to a monitor, 
 or [ssh into it](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-6-using-ssh/enabling-ssh) to do local development.
+You may also want to install `git`, if it's not there already.
 
 ### Processing/monitor setup
 
@@ -15,9 +16,23 @@ Install Processing on your Pi:
 
 ### Python/LED setup
 
+Materials:
+* Raspberry Pi 4
+* NeoPixel 8 RGB LED Module
+* 3 female-to-female wires
+
+Attach each wire to one of the NeoPixel's three "IN" pins.
+Link the S (signal) pin to Pi'l GPIO21, the pin closest to the ethernet port and th e edge of the board.
+Link the P (power) pin to the Pi's 3.3V, the pin diagonally opposite to GPIO21.
+Link the G (ground) pin 3-by-2 pins down from the power pin, into the Pi's GROUND pin.
+
 Ensure that Python3 is installed on your Pi:
 
 ```$ python3 --version```
+
+Run `neopixels_colors.py` using administrator privileges.
+
+```$ sudo python3 neopixels_colors.py```
 
 ### Start on boot
 
@@ -27,7 +42,6 @@ the path to your home directory is `/home/pi`
 and that this repo is in a folder called `hw`. 
 If this isn't the case, please edit the path in the p5.desktop file 
 to match the path of the python script and Processing sketch, respectively.
-
 
 ### Final product
 
