@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Processing
-Exec=/usr/local/bin/processing-java --sketch=/home/pi/hw/hw1/processing_colorwalkers --present
+Exec=sudo python3 /home/pi/hw/hw1/neopixels_colors.py & /usr/local/bin/processing-java --sketch=/home/pi/hw/hw1/processing_colorwalkers --present
