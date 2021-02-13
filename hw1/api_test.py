@@ -9,7 +9,8 @@ colors = data['colors']
 
 for c in colors:
     color_string = c['hex']
-    r = color_string[0:2]
-    g = color_string[2:4]
-    b = color_string[4:6]
-    print(r, g, b)
+    r = int(color_string[0:2], 16)
+    g = int(color_string[2:4], 16)
+    b = int(color_string[4:6], 16)
+    color = (r, g, b)
+    print(color)
