@@ -39,7 +39,14 @@ class Paintbrush {
   
   void move(int moveX, int moveY) {
     this.x += moveX;
+    if (this.x > width) {
+      this.x = width;
+    }
+    
     this.y += moveY;
+    if (this.y > height) {
+      this.y= height;
+    }
   }
   
   void setSize(int newSize) {
