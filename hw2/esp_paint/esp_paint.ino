@@ -13,8 +13,13 @@ void setup() {
   pinMode(xyzPins[2], INPUT_PULLUP);
   
   // set pinmode for drawButton
+  pinMode(drawPin, INPUT);
+  
   // set pinmode for eraseButton
+  pinMode(erasePin, INPUT);
+  
   // set pinmode for switch
+  pinMode(switchPin, INPUT);
   
 }
 
