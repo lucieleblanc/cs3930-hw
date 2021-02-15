@@ -41,11 +41,15 @@ class Paintbrush {
     this.x += moveX;
     if (this.x > width) {
       this.x = width;
+    } else if (this.x < 0) {
+      this.x = 0;
     }
     
     this.y += moveY;
     if (this.y > height) {
-      this.y= height;
+      this.y = height;
+    } else if (this.y < 0) {
+      this.y = 0;
     }
   }
   
