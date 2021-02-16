@@ -1,3 +1,6 @@
+import processing.serial.*;
+import java.util.Arrays;
+
 final color canvasColor = color(255, 255, 255);
 final color startColor = color(125, 125, 125);
 final int smallR = 20;
@@ -12,6 +15,10 @@ boolean eraseButton;
 boolean smallBrush;
 
 Paintbrush pb;
+
+Serial myPort;
+String sensorStr;
+
 
 class Paintbrush {
   
@@ -77,29 +84,72 @@ int vryToMove(int vry) {
   return 0;
 }
 
-void setup() {
-  background(canvasColor);
-  pb = new Paintbrush();
-  
+
+void updateBrush() {
   if (smallBrush) {
     pb.setSize(smallR);
   } else {
     pb.setSize(largeR);
   }
+}
 
+void setup() {
+  size(300, 300);
+  background(canvasColor);
+  noStroke();
+  pb = new Paintbrush();
+  updateBrush();
+  
+  // initialize serial port communication
+  System.out.println(Arrays.toString(Serial.list()));
+  String portName = Serial.list()[2];
+  System.out.println(portName);
+  myPort = new Serial(this, portName, 112500);
+
+}
+
+void parseSerial() {
+  sensorStr = trim(sensorStr);
+  println(sensorStr);
+  
+  if (sensorStr == null) {
+    return;
+  }
+  
+  String[] sensorData = split(sensorStr,',');
+  
+  if (sensorData.length == 6) {
+    vrx = parseInt(sensorData[0]);
+    vry = parseInt(sensorData[1]);
+    println(vrx);
+    println(vry);
+    
+    int drawOn = parseInt(sensorData[3]);
+    drawButton = (drawOn == 0);
+    println(drawButton);
+    
+    int eraseOn = parseInt(sensorData[4]);
+    eraseButton = (eraseOn == 0);
+    println(drawButton);
+    
+    int switchOn = parseInt(sensorData[5]);
+    smallBrush = (switchOn == 0);
+    println(drawButton);
+  }
 }
 
 void draw() {
   
+  if (myPort.available() > 0) {
+    sensorStr = myPort.readStringUntil('\n');
+    parseSerial();
+  }
+  
   if (drawButton && eraseButton) {
     background(canvasColor);
   }
-  
-  if (smallBrush) {
-    pb.setSize(smallR);
-  } else {
-    pb.setSize(largeR);
-  }
+   
+  updateBrush();
   
   // determine if joystick has moved
   pb.move(vrxToMove(vrx), vryToMove(vry));

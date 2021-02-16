@@ -28,18 +28,18 @@ void loop() {
   int xVal = analogRead(xyzPins[0]);
   int yVal = analogRead(xyzPins[1]);
   int zVal = digitalRead(xyzPins[2]);
-  Serial.printf("X,Y,Z: %d,\t%d,\t%d\n", xVal, yVal, zVal);
+  Serial.printf("%d,%d,%d,", xVal, yVal, zVal);
   
   int drawButtonVal = digitalRead(drawPin);
-  Serial.println(drawButtonVal);
+  Serial.printf("%d,", drawButtonVal);
   // TODO: if draw on, turn on draw light
 
   int eraseButtonVal = digitalRead(erasePin);
-  Serial.println(eraseButtonVal);
+  Serial.printf("%d,", eraseButtonVal);
   // TODO: if erase on, turn on erase light
 
   int switchVal = digitalRead(switchPin);
-  Serial.println(switchVal);
+  Serial.printf("%d\n", switchVal);
 
   // output a value to the Serial console
   // based on the combination of inputs
