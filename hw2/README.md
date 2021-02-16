@@ -1,10 +1,10 @@
 # Assignment 2: Interactive Device
 
-### Paint time
+### Paint Time: Introducing Pi Paint
 
 If your school had a computer lab, chances are you have prior experience with drawing software.
 Programs like MS Paint (Windows), KidPix (Mac) and Tux Paint (Linux) were the go-to software after finishing up the day's typing lesson.
-Here, we recreate the janky paint software experience with a game console-style controller. 
+Here, we recreate the janky paint software experience with an interactive Processing drawing program and a game console-style controller. 
 
 
 ## Assembling the Hardware
