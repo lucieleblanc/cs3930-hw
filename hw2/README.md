@@ -90,7 +90,7 @@ Once you've closed the box, the outside of the enclosure is ready to be labeled 
 ### Installing and running the software
 
 You'll first need to install Processing and Arduino on the Raspberry Pi. 
-Open `esp_paint/esp_paint.ino` with Arduino. Compile and upload it to your Pi.
+Open `esp_paint/esp_paint.ino` with Arduino. Compile and upload it to the ESP32.
 Run `pi_paint/pi_paint.pde` with `processing-java` on the Pi, and you should see a canvas window appear. 
 
 Press the draw/erase buttons to activate the paintbrush, use the switch to toggle between paintbrush sizes, and use the joystick to move around.
