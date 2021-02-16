@@ -82,18 +82,18 @@ class Paintbrush {
 }
 
 int vrxToMove(int vrx) {
-  if (vrx > 1830) {
+  if (vrx > 1860) {
     return 1;
-  } else if (vrx < 1810) {
+  } else if (vrx < 1780) {
     return -1;
   }
   return 0;
 }
 
 int vryToMove(int vry) {
-  if (vry > 1940) {
+  if (vry > 1970) {
     return 1;
-  } else if (vry < 1920) {
+  } else if (vry < 1890) {
     return -1;
   }
   return 0;
@@ -109,7 +109,7 @@ void updateBrush() {
 }
 
 void setup() {
-  size(300, 300);
+  size(500, 500);
   background(canvasColor);
   noStroke();
   pb = new Paintbrush();
@@ -119,7 +119,7 @@ void setup() {
   System.out.println(Arrays.toString(Serial.list()));
   String portName = Serial.list()[2];
   System.out.println(portName);
-  myPort = new Serial(this, portName, 112500);
+  myPort = new Serial(this, portName, 9600);
 
 }
 
@@ -130,12 +130,12 @@ void parseSerial() {
   if (sensorStr == null) {
     return;
   }
-  
+  println(sensorStr);
   String[] sensorData = split(sensorStr,',');
   
   if (sensorData.length == 6) {
-    vrx = parseInt(sensorData[0]);
-    vry = parseInt(sensorData[1]);
+    vry = parseInt(sensorData[0]);
+    vrx = 4095 - parseInt(sensorData[1]);
     println(vrx);
     println(vry);
     
@@ -149,7 +149,7 @@ void parseSerial() {
     
     int switchOn = parseInt(sensorData[5]);
     smallBrush = (switchOn == 0);
-    println(drawButton);
+    println(smallBrush);
   }
 }
 
