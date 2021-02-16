@@ -2,7 +2,6 @@ import processing.serial.*;
 import java.util.Arrays;
 
 final color canvasColor = color(255, 255, 255);
-final color startColor = color(125, 125, 125);
 final int smallR = 20;
 final int largeR = 50;
 
@@ -25,18 +24,34 @@ class Paintbrush {
   int size;
   int x;
   int y;
-  color col;
+  int r;
+  int g;
+  int b;
   
   public Paintbrush() {
     this.size = smallR;
-    this.col = startColor;
     this.x = width / 2;
     this.y = height / 2;
+    this.r = 125;
+    this.g = 125;
+    this.b = 125;
   }
   
   void mark() {
-    fill(this.col);
+    fill(this.r, this.g, this.b);
     ellipse(this.x, this.y, this.size, this.size);
+    
+    this.r += random(-5, 6);
+    this.r = max(this.r, 0);
+    this.r = min(this.r, 255);
+    
+    this.g += random(-5, 6);
+    this.g = max(this.g, 0);
+    this.g = min(this.g, 255);
+    
+    this.b += random(-5, 6);
+    this.b = max(this.b, 0);
+    this.b = min(this.b, 255);
   }
   
   void erase() {
