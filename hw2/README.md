@@ -94,4 +94,4 @@ Open `esp_paint/esp_paint.ino` with Arduino. Compile and upload it to the ESP32.
 Run `pi_paint/pi_paint.pde` with `processing-java` on the Pi, and you should see a canvas window appear. 
 
 Press the draw/erase buttons to activate the paintbrush, use the switch to toggle between paintbrush sizes, and use the joystick to move around.
-Here's a video of [Pi Paint in action](img/user_video.mp4).
+Here's a video of [Pi Paint in action](img/user_video.mp4), and a screenshot of a session: ![software](img/software_art.png)
