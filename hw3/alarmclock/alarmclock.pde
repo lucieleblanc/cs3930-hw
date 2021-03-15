@@ -8,6 +8,7 @@ void setup() {
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
   calmBg();
+  size(400, 400);
 }
 
 
