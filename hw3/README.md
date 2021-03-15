@@ -112,5 +112,13 @@ To run the Python script for the alarm clock, you'll need to run Java with the `
 It will look something like this:
 ```$ java -jar p5/processing-py.jar alarmclockpy/alarmclockpy.pyde```
 
+The ESP32 user can move around in the space.
+The alarm clock runs smoothly normally, in a circular pattern.
 
+![Normal clock](img/calm_clock.png)
+
+If the user presses both buttons at once,
+the device "panics" and the alarm rings.
+
+![Ringing alarm](img/panic_clock.png)
 
