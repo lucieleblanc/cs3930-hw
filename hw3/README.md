@@ -97,7 +97,7 @@ The enclosure is assembled and ready for decoration.
 ### Installing and running the software
 
 Install Arduino IDE on the Raspberry Pi.
-Open `esp_paint/esp_paint.ino` with Arduino. 
+Open `clockcontrol/clockcontrol.ino` with Arduino. 
 Compile and upload it to the ESP32.
 
 Next, you'll need to install Java (version 8) on the Raspberry Pi.
@@ -127,4 +127,6 @@ If the user presses both buttons at once,
 the device "panics" and the alarm rings.
 
 ![Ringing alarm](img/panic_clock.png)
+
+It's perfect for waking up your roommate after a long day of Raspberry Pi work, as you can see in [this video](img/user_video.mp4).
 
