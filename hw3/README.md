@@ -1,5 +1,13 @@
 # Assignment 3: Wireless Installation 
 
+### Remote-controlled alarm clock display
+
+Does your roommate oversleep all the time? 
+Do you need them to be awake because it's their turn to cook lunch and they already slept in every day last week?
+
+This semester, I am that roommate.
+
+This alarm clock display looks normal and calm, but changes to "panic mode" with an _alarming_ly chaotic clock face to gently remind your roommate that it's time to wake up.
 
 ## Assembling the Hardware
 
