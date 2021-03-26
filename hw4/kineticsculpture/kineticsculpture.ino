@@ -24,6 +24,7 @@ int stepperPorts[] = {14, 27, 26, 25};
 void setup() {
     setupWifi();
     setupServo();
+    setupStepper();
 }
 
 void setupWifi() {
@@ -83,29 +84,22 @@ void loop() {
 
 
 void flap() {
-    int maxDeg = 60;
-    for (posVal = 0; posVal <= maxDeg; posVal += 1) { 
-        myservo1.write(posVal);
-        myservo2.write(posVal);
-        delay(10);
+    int delayTime = 20;
+    for (int i = 0; i <= 5; i++) {
+        int maxDeg = 60;
+        for (posVal = 0; posVal <= maxDeg; posVal += 1) { 
+            myservo1.write(posVal);
+            myservo2.write(posVal);
+            moveOneStep(true);
+            delay(delayTime);
+        }
+        for (posVal = maxDeg; posVal >= 0; posVal -= 1) {
+            myservo1.write(posVal);
+            myservo2.write(posVal);
+            moveOneStep(true);
+            delay(delayTime);
+        }
     }
-    for (posVal = maxDeg; posVal >= 0; posVal -= 1) {
-        myservo1.write(posVal);
-        myservo2.write(posVal);
-        delay(10);
-    }
-}
-
-
-void rotateStepper() {
-  // Rotate a full turn
-  Serial.println("turning one dir");
-  moveSteps(true, 32 * 64, 3);
-  delay(1000);
-  // Rotate a full turn towards another direction
-  Serial.println("turning another dir");
-  moveSteps(false, 32 * 64, 10);
-  delay(1000);
 }
 
 void moveSteps(bool dir, int steps, byte ms) { 
