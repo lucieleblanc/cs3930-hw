@@ -7,3 +7,7 @@ Homework assignments for COMS3930 - Creative Embedded Systems
 
 [Assignment 3: Wireless Device](https://github.com/lucieleblanc/cs3930-hw/blob/main/hw3/)
 
+Assignment 4: Kinetic Sculpture
+
+[Assignment 5: Board Game](https://github.com/lucieleblanc/cs3930-hw/blob/main/hw5/)
+
