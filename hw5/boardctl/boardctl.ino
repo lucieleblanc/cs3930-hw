@@ -4,7 +4,7 @@
 #define BRIDGE_SQUARE 13
 #define TRAM_LED 0
 #define TRAM_SQUARE 12
-#define TRAM_SERVO 14
+#define TRAM_SERVO 15
 
 bool tramLocation;
 Servo tramServo;
@@ -13,6 +13,7 @@ void setup() {
     Serial.begin(115200);
     setupBridge();
     setupTram();
+    Serial.println("Done setting up!");
 }
 
 void setupBridge() {
@@ -36,27 +37,34 @@ void setupServo() {
 void loop() {
     checkBridge();
     checkTram();
+    delay(50);
 }
 
 void checkBridge() {
     if (digitalRead(BRIDGE_SQUARE) == LOW) {
-        digitalWrite(BRIDGE_LED,HIGH); 
-    } else {
+        Serial.println("Bridge read LOW");
         digitalWrite(BRIDGE_LED,LOW); 
+    } else {
+        Serial.println("Bridge read HIGH");
+        digitalWrite(BRIDGE_LED,HIGH); 
+        delay(500);
     }
 }
 
 void checkTram() {
-    if (digitalRead(TRAM_SQUARE) == LOW) {
+    if (digitalRead(TRAM_SQUARE) == HIGH) {
+        Serial.println("Tram read HIGH");
+        digitalWrite(TRAM_LED,LOW);
+    } else {
+        Serial.println("Tram read LOW");
         blinkTramLED();
         moveTram();
-    } else {
-        digitalWrite(TRAM_LED,LOW);
+        delay(5000);
     }
 }
 
 void blinkTramLED() {
-    for (int i = 1; i < 5; i++) {
+    for (int i = 0; i < 5; i++) {
         digitalWrite(TRAM_LED,HIGH);
         delay(500);
         digitalWrite(TRAM_LED,LOW);
@@ -71,12 +79,12 @@ void moveTram() {
 }
 
 void updateTram() {
-    int maxDeg = 60;
-    int minDeg = 0;
+    int maxDeg = 100;
+    int minDeg = 20;
     int delayTime = 40;
 
     int startPos, endPos, posStep;
-    if (tramLocation) {
+    if (!tramLocation) {
       startPos = minDeg;
       endPos = maxDeg;
       posStep = 1;
